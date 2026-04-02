@@ -1,0 +1,29 @@
+name: Proposal
+description: A substantive proposal for the protocol — a new mechanism, an alternative approach, or an extension.
+title: "[Proposal] "
+labels: ["proposal"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this proposal address? Reference the relevant section if it relates to something already in the whitepaper.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Your proposed solution or approach. Include enough detail for others to evaluate the trade-offs.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you considered and why you favour this one.
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: What parts of the protocol would this affect? Are there backwards-compatibility implications?
