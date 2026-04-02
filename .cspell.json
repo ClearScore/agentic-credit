@@ -1,0 +1,26 @@
+{
+  "version": "0.2",
+  "language": "en-GB",
+  "words": [
+    "agentic",
+    "broking",
+    "clearscore",
+    "lifecycle",
+    "pre-contractual",
+    "pre-fill",
+    "supersession",
+    "UA",
+    "UAs",
+    "lender",
+    "lenders",
+    "BaFin",
+    "FCA",
+    "replayable",
+    "fallback",
+    "fallbacks"
+  ],
+  "ignorePaths": [
+    ".git",
+    "node_modules"
+  ]
+}

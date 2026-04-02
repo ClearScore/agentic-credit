@@ -1,0 +1,37 @@
+name: Protocol Feedback
+description: Feedback on the protocol design, interaction model, trust framework, or any aspect of the whitepaper.
+title: "[Feedback] "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to provide feedback on the Agentic Credit Broking Protocol.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the protocol does this relate to?
+      options:
+        - Interaction model (§4)
+        - Broker action types (§5)
+        - Domain entity vocabulary (§6)
+        - Trust model (§7)
+        - Benchmarking (§8)
+        - AI assistants as User Agents (§9)
+        - Roles and responsibilities (§3)
+        - General / cross-cutting
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: Your feedback. Be as specific as possible — reference section numbers where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Any relevant context — your perspective (e.g. broker, UA developer, regulator), related work, or examples.
