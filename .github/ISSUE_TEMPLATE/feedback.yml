@@ -1,5 +1,5 @@
 name: Protocol Feedback
-description: Feedback on the protocol design, interaction model, trust framework, or any aspect of the whitepaper.
+description: Feedback on the protocol design, interaction model, trust framework, whitepaper, or technical-specification set.
 title: "[Feedback] "
 labels: ["feedback"]
 body:
@@ -13,6 +13,13 @@ body:
       label: Area
       description: Which part of the protocol does this relate to?
       options:
+        - Technical specification
+        - REST binding
+        - MCP binding
+        - Schema appendix
+        - Standards and conventions
+        - Goals and scope
+        - Whitepaper / conceptual model
         - Interaction model (§4)
         - Broker action types (§5)
         - Domain entity vocabulary (§6)
@@ -27,7 +34,7 @@ body:
     id: feedback
     attributes:
       label: Feedback
-      description: Your feedback. Be as specific as possible — reference section numbers where relevant.
+      description: Your feedback. Be as specific as possible. Reference documents and section numbers where relevant.
     validations:
       required: true
   - type: textarea

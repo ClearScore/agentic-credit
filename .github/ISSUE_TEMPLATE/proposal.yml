@@ -7,7 +7,7 @@ body:
     id: problem
     attributes:
       label: Problem
-      description: What problem does this proposal address? Reference the relevant section if it relates to something already in the whitepaper.
+      description: What problem does this proposal address? Reference the relevant document and section if it relates to existing protocol material.
     validations:
       required: true
   - type: textarea
@@ -26,4 +26,4 @@ body:
     id: impact
     attributes:
       label: Impact
-      description: What parts of the protocol would this affect? Are there backwards-compatibility implications?
+      description: What parts of the protocol would this affect? Are there backwards-compatibility or cross-document implications?

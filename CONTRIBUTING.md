@@ -4,11 +4,12 @@ Thank you for your interest in the Agentic Credit Broking Protocol. We are devel
 
 ## How to Participate
 
-### Feedback on the Whitepaper
+### Feedback on the Document Set
 
 The protocol is at an early stage. The most valuable contributions right now are:
 
 - **Conceptual feedback** — Does the interaction model make sense? Are the role boundaries right? Are there gaps in the trust framework?
+- **Specification feedback** — Are the `v0.4` technical semantics, bindings, and schema shapes coherent and implementable?
 - **Domain expertise** — Perspectives from credit broking, lending, financial regulation, AI safety, or protocol design.
 - **Use cases** — Scenarios that would test or break the current design.
 
@@ -20,7 +21,7 @@ If you have a substantive proposal — a new mechanism, an alternative approach 
 
 ### Questions
 
-If something in the whitepaper is unclear, open a Question issue.
+If something in the whitepaper or technical-specification set is unclear, open a Question issue.
 
 ## Language
 
@@ -35,7 +36,7 @@ When submitting a PR:
 1. Fork the repository and create your branch from `main`.
 2. Fill in the pull request template — what changed, why, and any open questions.
 3. Keep changes focused. One logical change per PR.
-4. For whitepaper changes, explain the reasoning — the "why" matters more than the "what."
+4. For protocol document changes, explain the reasoning — the "why" matters more than the "what."
 
 PRs will be squash-merged to keep `main` history clean.
 
