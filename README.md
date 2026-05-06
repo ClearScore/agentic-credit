@@ -16,21 +16,21 @@ AI assistants are changing how consumers begin financial journeys. The regulated
 
 The protocol allows interaction and responsibility to travel separately. A User Agent can mediate a complete credit journey without becoming a regulated entity. The broker retains regulatory control and gains an evidence trail, even though the conversation happened elsewhere.
 
-## Read the Whitepaper
+## Read the Document Set
 
-The full protocol description is in [docs/whitepaper.md](docs/whitepaper.md). It covers:
+The current protocol version is `v0.4`. The repository document set for `v0.4` includes:
 
-1. **The interaction model** — the UA drives the interaction; the broker controls the gates
-2. **Protocol operations** — six operations through which UAs participate in a credit broking journey
-3. **Events** — typed, structured descriptions of what the broker did in response to a UA operation
-4. **Broker action types** — disclosures, consents, declarations, instructions, information requests, and case outcomes
-5. **A domain entity vocabulary** — standardised types for financial entities that make up the shared case state
-6. **A trust framework** — progressive trust calibrated per operation, with broker-controlled interaction as the designed fallback
-7. **Benchmarking** — compliance testing and certification for User Agents
+1. [docs/whitepaper.md](docs/whitepaper.md) — the conceptual narrative: roles, protocol model, trust model, and benchmarking approach.
+2. [docs/protocol-goals-and-scope.md](docs/protocol-goals-and-scope.md) — `v0.4` release intent, scope boundaries, deliverables, and status constraints for the technical-specification review set.
+3. [docs/protocol-standards-and-conventions.md](docs/protocol-standards-and-conventions.md) — shared standards, requirement-language conventions, naming rules, and cross-document editorial constraints.
+4. [docs/protocol-technical-spec.md](docs/protocol-technical-spec.md) — transport-neutral semantics for operations, gates, entities, lifecycle, errors, and security model.
+5. [docs/protocol-schema-appendix.md](docs/protocol-schema-appendix.md) — canonical schema catalogue, field expectations, and transport-neutral structure boundaries.
+6. [docs/protocol-rest-binding.md](docs/protocol-rest-binding.md) — HTTP/JSON realisation of the protocol, including discovery, endpoint mapping, and worked REST flow.
+7. [docs/protocol-mcp-binding.md](docs/protocol-mcp-binding.md) — MCP tool/resource/prompt realisation of the same semantics, with parallel worked MCP flow.
 
 ## Status
 
-This protocol is in early development. The whitepaper (v0.3) describes the problem, the roles, the interaction model, and the trust framework. Formal specifications, schemas, and reference implementations will follow.
+This protocol is in early development. `v0.4` is the current version in this repository, comprising the whitepaper and the first technical-specification review set. The `v0.4` material is concrete enough for technical review and prototyping, but it is still provisional and should not be treated as a production-stable standard.
 
 We are developing this protocol in the open and welcome feedback.
 

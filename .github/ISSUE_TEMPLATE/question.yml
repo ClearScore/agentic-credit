@@ -1,5 +1,5 @@
 name: Question
-description: Something in the whitepaper is unclear. Unclear writing is a bug.
+description: Something in the whitepaper or technical-specification set is unclear. Unclear writing is a bug.
 title: "[Question] "
 labels: ["question"]
 body:
@@ -7,11 +7,11 @@ body:
     id: question
     attributes:
       label: Question
-      description: What is unclear? Reference the section number if possible.
+      description: What is unclear? Reference the document and section number if possible.
     validations:
       required: true
   - type: textarea
     id: what-you-expected
     attributes:
       label: What you expected
-      description: What did you expect the whitepaper to say, or what interpretation are you unsure between?
+      description: What did you expect the document set to say, or what interpretation are you unsure between?

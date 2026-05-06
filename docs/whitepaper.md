@@ -1,4 +1,4 @@
-# Agentic Credit Broking Protocol v0.3
+# Agentic Credit Broking Protocol v0.4
 
 ## 1. Overview
 
@@ -392,6 +392,40 @@ This has several consequences for complaint investigation:
 - **Regulatory use.** A supervisor investigating a complaint can replay the broker's actions through the User Agent independently, without relying solely on the parties' own evidence. The protocol's structured action format makes the broker's case record directly usable as test material.
 
 Replay does not prove what happened in the original conversation - it proves what the User Agent does now when presented with the same broker actions. But combined with the broker's contemporaneous case record and any transcripts, it provides a richer investigative toolkit than static logs alone.
+
+### 7.8 Security Addendum
+
+The protocol's security model serves the same purpose as its regulatory model: preserving broker accountability when the broker does not control the user's interaction surface. The security question is not merely whether an API call is authenticated. It is whether the broker can know who is participating, decide what that participant may do, prevent case access from being hijacked, preserve the content of regulated moments, and retain evidence of the journey. This subsection is non-normative explanatory content; conformance-level security requirements are defined in the technical specification.
+
+#### 7.8.1 Threat model
+
+The protocol assumes that several things can go wrong. A User Agent may be unknown, insufficiently tested, or malicious. A legitimate User Agent may be compromised or may drift after a model, prompt, or configuration change. A user or attacker may attempt to continue someone else's case by guessing or obtaining a case identifier. A stale broker action may be replayed after it has already been resolved or superseded. Broker-authored regulated content may be paraphrased, omitted, or altered. A transcript may be fabricated, incomplete, or misleading. A registry certification may be stale. The protocol cannot eliminate these risks by assuming good behaviour; it mitigates them through identity, authorisation, progressive trust, broker-controlled fallback, and evidence.
+
+#### 7.8.2 Identity and authority
+
+The broker needs two kinds of security context. First, it needs the identity of the protocol participant: the User Agent operator, platform, registered client, or other authenticated party calling the broker. Second, it needs authority for the user-side case: either an account-bound user identity recognised by the broker, or a guest case-continuation authority for a prospective user who does not yet have a broker account. A guest authority may be carried through OAuth or another secure mechanism, but it represents a pseudonymous guest participant or session, not proof of the user's durable real-world identity.
+
+This distinction matters because a case identifier is not an access credential. The broker must not treat possession of a `case_id` as permission to read or mutate a case. To prevent case hijack, every case-scoped operation must be authorised by an account-bound user authority or a guest continuation authority, and that authority must be scoped to the case and constrained by broker policy. If the authority is missing, expired, belongs to a different user or guest participant, or is not allowed to perform the requested operation, the broker refuses the operation without revealing unnecessary information about the case.
+
+#### 7.8.3 Authentication is not trust
+
+Authentication answers who is calling. Trust answers what the broker is willing to let that caller do directly. A User Agent may be authenticated and still be untrusted for regulated action resolution. This is why progressive trust (§7.3) is a security control as well as a regulatory control. A high-trust User Agent may handle disclosures and consents directly. A medium-trust User Agent may provide data and read state, while regulated moments move to the broker-controlled surface (§7.4). A low-trust or unknown User Agent can introduce the user and supply limited context, but cannot weaken the broker's compliance position.
+
+#### 7.8.4 Guest journeys require tighter controls
+
+Many credit journeys begin before the broker knows the user. The protocol should support that path, but a guest case is lower assurance than an account-bound case. The broker may allow a guest participant to open a case, provide information, and review limited state, while requiring step-up before higher-risk actions: account creation, identity verification, transfer to a lender, full case export, or direct resolution of regulated disclosures, consents, declarations, or instructions. The guest path is useful because it lets users begin where they are; it is safe because the broker controls when stronger assurance is required.
+
+#### 7.8.5 Regulated content integrity
+
+Broker actions are broker-controlled moments. When a pending action is marked regulated, the User Agent must preserve the broker-authored content faithfully. Transport security protects content in transit, but the broker should also preserve evidence of exactly what it issued: the action identifier, content, timestamp, subjects, and resolution. Later protocol versions may standardise stronger integrity mechanisms such as signed action payloads or content digests, but the core requirement is already present: regulated content cannot be treated as ordinary assistant prose.
+
+#### 7.8.6 Evidence and privacy
+
+The evidence record is also a security control. The broker records which participant acted, which account-bound or guest authority was used, what operation was accepted, what structured data was supplied, which broker action was issued, how it was resolved, and whether a regulated step was completed through the User Agent or the broker-controlled surface. At the same time, the protocol carries sensitive financial and personal information. Credentials and continuation secrets should not appear in transcripts, broker-authored content, model-visible tool results, or user-facing messages. Transcripts remain opaque evidence: they may help an audit or complaint investigation, but they are not the source of protocol truth.
+
+#### 7.8.7 Residual risk
+
+The protocol makes AI-mediated credit journeys more observable and controllable than an unstructured assistant conversation, but it does not make User Agents perfectly safe. A certified User Agent can degrade. A transcript can be inaccurate. A user can be socially engineered outside the protocol. A broker can make a poor trust decision. These are governance and supervision risks, not reasons to abandon the model. The protocol's answer is layered: authenticate participants, authorise case access, calibrate trust by operation, use the broker-controlled surface when trust is insufficient, preserve evidence, benchmark behaviour, and re-evaluate when systems change.
 
 ---
 

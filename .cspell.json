@@ -17,7 +17,8 @@
     "FCA",
     "replayable",
     "fallback",
-    "fallbacks"
+    "fallbacks", 
+    "notarisation"
   ],
   "ignorePaths": [
     ".git",
